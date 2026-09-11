@@ -3376,7 +3376,7 @@ h1 {
 .price-lock div {
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: flex-end;
   gap: 18px;
   flex-wrap: wrap;
 }

@@ -7,6 +7,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const assetUrl = (path: string) => `${basePath}${path}`;
+
 const reelCards = [
   {
     src: "/rankreels-assets/sample-reel-1.webp",
@@ -367,7 +370,7 @@ export default function Home() {
                 {vslReels.map((src, index) => (
                   <span key={src}>
                     <video
-                      src={src}
+                      src={assetUrl(src)}
                       autoPlay
                       loop
                       muted
@@ -395,7 +398,7 @@ export default function Home() {
           {reelCards.map((reel) => (
             <article className="reel-card group motion-media" key={reel.src}>
               <div className="reel-visual">
-                <img src={reel.src} alt={reel.alt} loading="lazy" />
+                <img src={assetUrl(reel.src)} alt={reel.alt} loading="lazy" />
               </div>
             </article>
           ))}
@@ -414,10 +417,10 @@ export default function Home() {
             </div>
             <div className="proof-evidence-stack" aria-label="Creator profile screenshots showing ranking videos with higher view counts">
               <figure className="proof-phone-card proof-phone-card-back">
-                <img src="/rankreels-assets/proof-ranking-54k.jpeg" alt="Creator profile grid showing a ranking reel with 54.5K views" />
+                <img src={assetUrl("/rankreels-assets/proof-ranking-54k.jpeg")} alt="Creator profile grid showing a ranking reel with 54.5K views" />
               </figure>
               <figure className="proof-phone-card proof-phone-card-front">
-                <img src="/rankreels-assets/proof-ranking-64k.jpeg" alt="Creator profile grid showing a ranking reel with 64.3K views" />
+                <img src={assetUrl("/rankreels-assets/proof-ranking-64k.jpeg")} alt="Creator profile grid showing a ranking reel with 64.3K views" />
               </figure>
             </div>
             <div className="proof-insight-card">
@@ -619,7 +622,7 @@ export default function Home() {
             </div>
             <img
               className="product-reveal-bg"
-              src="/rankreels-assets/product-reveal-dashboard.png"
+              src={assetUrl("/rankreels-assets/product-reveal-dashboard.png")}
               alt=""
               aria-hidden="true"
             />
@@ -642,7 +645,7 @@ export default function Home() {
               <article className="product-component-card product-component-face">
                 <div className="component-face-crop" aria-hidden="true">
                   <video
-                    src="/rankreels-assets/finished-ranking-reel.mp4"
+                    src={assetUrl("/rankreels-assets/finished-ranking-reel.mp4")}
                     autoPlay
                     loop
                     muted
@@ -695,7 +698,7 @@ export default function Home() {
             <div className="product-output-stack">
               <div className="product-phone-player" aria-label="Finished ranking reel video player">
               <video
-                src="/rankreels-assets/finished-ranking-reel.mp4"
+                src={assetUrl("/rankreels-assets/finished-ranking-reel.mp4")}
                 controls
                 playsInline
                 preload="metadata"
@@ -751,9 +754,9 @@ export default function Home() {
                     </div>
 
                     <div className="workflow-product-canvas">
-                      <img className="workflow-frame-image workflow-frame-image-bg" src={step.asset} alt="" aria-hidden="true" />
+                      <img className="workflow-frame-image workflow-frame-image-bg" src={assetUrl(step.asset)} alt="" aria-hidden="true" />
                       <div className="workflow-focus-window">
-                        <img src={step.focusAsset} alt={step.focusAlt} />
+                        <img src={assetUrl(step.focusAsset)} alt={step.focusAlt} />
                       </div>
 
                       {step.variant === "twin" && (
@@ -886,7 +889,7 @@ export default function Home() {
                   className={`identity-scene-card ${index === 0 ? "identity-scene-card-hero" : ""}`}
                   key={scene.title}
                 >
-                  <img src={scene.src} alt={scene.alt} />
+                  <img src={assetUrl(scene.src)} alt={scene.alt} />
                   {index > 0 && <figcaption>{scene.title}</figcaption>}
                 </figure>
               ))}
@@ -958,7 +961,7 @@ export default function Home() {
                           <div className="brand-output-stack">
                             {(feature.asset.outputs ?? []).map((src, outputIndex) => (
                               <div className="brand-output-card" key={src}>
-                                <img src={src} alt={`Consistent branded reel output ${outputIndex + 1}`} />
+                                <img src={assetUrl(src)} alt={`Consistent branded reel output ${outputIndex + 1}`} />
                               </div>
                             ))}
                           </div>
@@ -971,12 +974,12 @@ export default function Home() {
                           <span />
                           <span />
                         </div>
-                        <img className="feature-ideas-bg" src={feature.asset.src} alt="" aria-hidden="true" />
+                        <img className="feature-ideas-bg" src={assetUrl(feature.asset.src!)} alt="" aria-hidden="true" />
                         <div className="feature-review-panel feature-review-panel-back">
-                          <img src={feature.asset.secondaryFocusSrc} alt={feature.asset.secondaryFocusAlt} />
+                          <img src={assetUrl(feature.asset.secondaryFocusSrc!)} alt={feature.asset.secondaryFocusAlt} />
                         </div>
                         <div className="feature-review-panel feature-review-panel-front">
-                          <img src={feature.asset.focusSrc} alt={feature.asset.focusAlt} />
+                          <img src={assetUrl(feature.asset.focusSrc!)} alt={feature.asset.focusAlt} />
                         </div>
                       </div>
                     ) : feature.asset.variant === "publish" ? (
@@ -986,9 +989,9 @@ export default function Home() {
                           <span />
                           <span />
                         </div>
-                        <img className="feature-ideas-bg" src={feature.asset.src} alt="" aria-hidden="true" />
+                        <img className="feature-ideas-bg" src={assetUrl(feature.asset.src!)} alt="" aria-hidden="true" />
                         <div className="feature-publish-focus">
-                          <img src={feature.asset.focusSrc} alt={feature.asset.focusAlt} />
+                          <img src={assetUrl(feature.asset.focusSrc!)} alt={feature.asset.focusAlt} />
                         </div>
                       </div>
                     ) : (
@@ -998,9 +1001,9 @@ export default function Home() {
                           <span />
                           <span />
                         </div>
-                        <img className="feature-ideas-bg" src={feature.asset.src} alt="" aria-hidden="true" />
+                        <img className="feature-ideas-bg" src={assetUrl(feature.asset.src!)} alt="" aria-hidden="true" />
                         <div className="feature-ideas-focus">
-                          <img src={feature.asset.focusSrc} alt={feature.asset.focusAlt} />
+                          <img src={assetUrl(feature.asset.focusSrc!)} alt={feature.asset.focusAlt} />
                         </div>
                       </div>
                     )}
