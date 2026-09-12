@@ -44,9 +44,9 @@ a {
 }
 
 .nav-wrap {
-  position: fixed;
-  top: 20px;
-  left: 50%;
+  position: relative;
+  top: auto;
+  left: auto;
   z-index: 20;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -58,12 +58,23 @@ a {
   background: rgba(10, 10, 11, 0.76);
   box-shadow: 0 22px 70px rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(18px);
-  transform: translateX(-50%);
+  margin: 20px auto 0;
+  transform: none;
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-size: 0.98rem;
   font-weight: 700;
+}
+
+.brand img {
+  width: 28px;
+  height: 28px;
+  display: block;
+  border-radius: 8px;
 }
 
 .nav-links {
@@ -126,6 +137,7 @@ a {
 
 .hero-copy {
   max-width: min(1120px, 100%);
+  margin-top: -86px;
   text-align: center;
   font-family: var(--font-body);
 }
@@ -731,7 +743,7 @@ h1 {
 .bottleneck-wide {
   grid-column: 1 / -1;
   max-width: 980px;
-  margin: -10px 0 0;
+  margin: -33px 0 0;
   color: var(--text-secondary);
   font-size: clamp(16px, 1.35vw, 19px);
   line-height: 1.72;
@@ -740,7 +752,7 @@ h1 {
 .pipeline-panel {
   width: min(430px, 100%);
   min-height: 300px;
-  margin-top: 34px;
+  margin-top: 77px;
   justify-self: end;
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -904,7 +916,7 @@ h1 {
   max-width: 760px;
   margin: 30px auto 0;
   color: #b0b0b0;
-  font-size: 23px;
+  font-size: 22px;
   line-height: 1.66;
 }
 
@@ -1505,11 +1517,15 @@ h1 {
 
 .workflow-asset {
   position: relative;
-  min-height: 390px;
+  width: calc(100% - 50px);
+  min-height: 0;
   display: grid;
   align-items: center;
   justify-items: center;
-  border-radius: 24px;
+  justify-self: center;
+  align-self: center;
+  padding: 10px;
+  border-radius: 8px;
   overflow: hidden;
   background:
     radial-gradient(circle at 20% 28%, rgba(255, 92, 57, 0.18), transparent 14rem),
@@ -1534,11 +1550,11 @@ h1 {
 .workflow-product-frame {
   position: relative;
   z-index: 2;
-  width: min(690px, 94%);
+  width: min(640px, 100%);
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  border: 1px solid rgba(255, 92, 57, 0.22);
-  border-radius: 24px;
+  border: 0;
+  border-radius: 24px 24px 8px 8px;
   background: #07080a;
   box-shadow:
     0 30px 90px rgba(0, 0, 0, 0.4),
@@ -1550,7 +1566,7 @@ h1 {
   position: absolute;
   inset: 0 0 auto;
   z-index: 6;
-  height: 42px;
+  height: 34px;
   display: flex;
   align-items: center;
   padding: 0 18px;
@@ -1570,7 +1586,7 @@ h1 {
 
 .workflow-product-canvas {
   position: absolute;
-  inset: 42px 0 0;
+  inset: 34px 0 0;
   overflow: hidden;
   background:
     radial-gradient(circle at 62% 42%, rgba(255, 92, 57, 0.1), transparent 19rem),
@@ -1641,23 +1657,23 @@ h1 {
 
 .workflow-asset-twin .workflow-focus-window {
   left: 7%;
-  top: 17%;
+  top: 11%;
   width: 68%;
-  height: 69%;
+  height: 78%;
 }
 
 .workflow-asset-idea .workflow-focus-window {
   left: 4.5%;
   right: 4.5%;
-  bottom: 12%;
-  height: 60%;
+  bottom: 8%;
+  height: 72%;
 }
 
 .workflow-asset-publish .workflow-focus-window {
   left: 5%;
   right: 5%;
-  top: 8%;
-  bottom: 7%;
+  top: 5%;
+  bottom: 5%;
 }
 
 .workflow-avatar-preview {
@@ -1926,7 +1942,7 @@ h1 {
 
 .identity-copy {
   width: min(940px, 100%);
-  margin: 0;
+  margin: 0 0 0 30px;
 }
 
 .identity-copy h2 {
@@ -1939,13 +1955,13 @@ h1 {
 .identity-copy p {
   max-width: 727px;
   margin: 16px 0 0;
-  color: #d6d6d6;
+  color: #a3a3aa;
   font-size: 19px;
   line-height: 1.42;
 }
 
 .identity-close {
-  color: #d6d6d6 !important;
+  color: #a3a3aa !important;
   font-size: 19px !important;
   font-weight: 400;
   line-height: 1.42 !important;
@@ -1953,7 +1969,7 @@ h1 {
 
 .identity-visual {
   position: relative;
-  width: min(920px, 100%);
+  width: min(871px, 100%);
   min-height: 430px;
   display: grid;
   place-items: center;
@@ -1961,8 +1977,8 @@ h1 {
   margin: 0 auto;
   opacity: 1;
   padding: clamp(16px, 2.3vw, 24px);
-  border: 10px solid rgba(105, 180, 218, 1);
-  border-radius: 9px;
+  border: 5px solid #35b0ed;
+  border-radius: 6px;
   background:
     radial-gradient(circle at 18% 22%, rgba(105, 180, 218, 0.16), transparent 20rem),
     radial-gradient(circle at 78% 74%, rgba(255, 92, 57, 0.16), transparent 22rem),
@@ -3576,6 +3592,132 @@ h1 {
   line-height: 1.35;
 }
 
+.site-footer {
+  border-top: 1px solid var(--border-subtle);
+  padding: 54px 24px 42px;
+  background: rgba(6, 6, 7, 0.72);
+}
+
+.footer-inner {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: minmax(240px, 1.5fr) repeat(3, minmax(130px, 1fr));
+  gap: 44px;
+  padding-bottom: 36px;
+}
+
+.footer-brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.footer-brand-link img {
+  width: 30px;
+  height: 30px;
+  display: block;
+  border-radius: 8px;
+}
+
+.footer-brand-column p {
+  max-width: 32ch;
+  margin: 16px 0 0;
+  color: var(--text-secondary);
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+
+.footer-column h2 {
+  margin: 5px 0 15px;
+  color: var(--text-primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 11px;
+  color: var(--text-secondary);
+  font-size: 13.5px;
+}
+
+.footer-links a,
+.footer-contact a {
+  transition: color 150ms ease;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible,
+.footer-contact a:hover,
+.footer-contact a:focus-visible {
+  color: var(--text-primary);
+}
+
+.footer-contact {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 13.5px;
+  font-style: normal;
+  line-height: 1.6;
+}
+
+.footer-contact a {
+  color: var(--text-primary);
+  overflow-wrap: anywhere;
+}
+
+.footer-contact p {
+  margin: 10px 0 0;
+  color: var(--text-tertiary);
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 24px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: var(--text-tertiary);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.footer-bottom p:first-child {
+  flex: none;
+}
+
+.footer-bottom p:last-child {
+  max-width: 67ch;
+  text-align: right;
+}
+
+.site-footer a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 4px;
@@ -3692,11 +3834,13 @@ h1 {
   }
 
   .workflow-asset {
-    min-height: 420px;
+    width: calc(100% - 40px);
+    min-height: 0;
+    padding: 10px;
   }
 
   .workflow-product-frame {
-    width: min(680px, 94%);
+    width: min(630px, 100%);
   }
 
   .feature-brand-board {
@@ -3913,6 +4057,11 @@ h1 {
     font-size: 13px;
   }
 
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px 48px;
+  }
+
   .tool-stack-row {
     grid-template-columns: 1fr;
   }
@@ -3958,7 +4107,7 @@ h1 {
   }
 
   .identity-visual {
-    border-radius: 9px;
+    border-radius: 6px;
   }
 
   .feature-card-publish .feature-copy {
@@ -3992,6 +4141,10 @@ h1 {
 
   .identity-visual {
     min-height: 380px;
+  }
+
+  .identity-copy {
+    margin-left: 0;
   }
 
   .identity-scene-board {
@@ -4083,16 +4236,18 @@ h1 {
   }
 
   .workflow-asset {
-    min-height: 360px;
+    width: calc(100% - 32px);
+    min-height: 0;
+    padding: 10px;
   }
 
   .workflow-product-frame {
     width: 100%;
-    border-radius: 22px;
+    border-radius: 22px 22px 8px 8px;
   }
 
   .workflow-product-bar {
-    height: 40px;
+    height: 32px;
     padding: 0 14px;
   }
 
@@ -4101,7 +4256,7 @@ h1 {
   }
 
   .workflow-product-canvas {
-    inset: 40px 0 0;
+    inset: 32px 0 0;
   }
 
   .workflow-avatar-preview {
@@ -4120,22 +4275,22 @@ h1 {
   .workflow-asset-twin .workflow-focus-window {
     left: 5%;
     right: 18%;
-    top: 18%;
-    height: 62%;
+    top: 12%;
+    height: 76%;
   }
 
   .workflow-asset-idea .workflow-focus-window {
     left: 4%;
     right: 4%;
-    bottom: 12%;
-    height: 60%;
+    bottom: 8%;
+    height: 72%;
   }
 
   .workflow-asset-publish .workflow-focus-window {
     left: 5%;
     right: 5%;
-    top: 8%;
-    bottom: 7%;
+    top: 5%;
+    bottom: 5%;
   }
 
   .product-component-card {
@@ -4230,6 +4385,25 @@ h1 {
     align-items: flex-start;
     flex-direction: column;
     gap: 4px;
+  }
+
+  .site-footer {
+    padding: 44px 18px 34px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-bottom: 30px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+
+  .footer-bottom p:last-child {
+    max-width: 100%;
+    text-align: left;
   }
 }
 

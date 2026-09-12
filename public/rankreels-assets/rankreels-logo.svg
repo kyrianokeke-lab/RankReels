@@ -1,0 +1,23 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="rankreels-bg" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#151518"/>
+      <stop offset="1" stop-color="#09090B"/>
+    </linearGradient>
+    <linearGradient id="rankreels-accent" x1="40" y1="14" x2="52" y2="30" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF7B5D"/>
+      <stop offset="1" stop-color="#FF5C39"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="4" y="4" width="56" height="56" rx="16" fill="url(#rankreels-bg)"/>
+  <rect x="4.5" y="4.5" width="55" height="55" rx="15.5" stroke="#FFFFFF" stroke-opacity="0.08"/>
+
+  <path
+    d="M20 16H33C41.2 16 46 20.8 46 27C46 31.95 42.89 35.89 38.2 37.27L46 48H36.91L30.61 39.05H28V48H20V16ZM28 23V32.7H32.15C36.76 32.7 38.95 31 38.95 27.84C38.95 24.67 36.76 23 32.15 23H28Z"
+    fill="#F7F6F3"
+  />
+
+  <rect x="44" y="14" width="5" height="11" rx="2.5" fill="url(#rankreels-accent)"/>
+  <rect x="50" y="18" width="5" height="7" rx="2.5" fill="#F2B27C"/>
+</svg>

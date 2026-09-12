@@ -339,7 +339,8 @@ export default function Home() {
     <main ref={pageRef} className="site-shell overflow-x-hidden w-full max-w-full">
       <nav className="nav-wrap" aria-label="Main navigation">
         <a className="brand" href="#" aria-label="RankReels home">
-          RankReels
+          <img src={assetUrl("/rankreels-assets/rankreels-logo.svg")} alt="" />
+          <span>RankReels</span>
         </a>
         <div className="nav-links">
           <a href="#samples">Samples</a>
@@ -723,7 +724,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="workflow-section" aria-labelledby="workflow-title">
+      <section className="workflow-section" id="how" aria-labelledby="workflow-title">
         <div className="workflow-inner">
           <div className="workflow-heading">
             <h2 id="workflow-title">
@@ -898,7 +899,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="features-section" aria-labelledby="features-title">
+      <section className="features-section" id="benefits" aria-labelledby="features-title">
         <div className="features-inner">
           <div className="features-heading">
             <h2 id="features-title">
@@ -1144,7 +1145,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="included-section" aria-labelledby="included-title">
+      <section className="included-section" id="offer" aria-labelledby="included-title">
         <div className="included-inner">
           <div className="included-copy">
             <h2 id="included-title">
@@ -1196,7 +1197,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="faq-section" aria-labelledby="faq-title">
+      <section className="faq-section" id="faq" aria-labelledby="faq-title">
         <div className="faq-inner">
           <h2 id="faq-title">Before Creating Your First Ranking Reel</h2>
 
@@ -1235,6 +1236,57 @@ export default function Home() {
           <p className="countdown-note">Founder&apos;s deal expires once the timer hits zero.</p>
         </div>
       </section>
+
+      <footer className="site-footer" aria-label="RankReels footer">
+        <div className="footer-inner">
+          <div className="footer-grid">
+            <div className="footer-brand-column">
+              <a className="footer-brand-link" href="#" aria-label="RankReels home">
+                <img src={assetUrl("/rankreels-assets/rankreels-logo.svg")} alt="" />
+                <span>RankReels</span>
+              </a>
+              <p>AI-assisted ranking-reel creation for marketers, founders, coaches, and creators.</p>
+            </div>
+
+            <nav className="footer-column" aria-label="Product links">
+              <h2>Product</h2>
+              <div className="footer-links">
+                <a href="#how">How it works</a>
+                <a href="#benefits">Benefits</a>
+                <a href="#faq">FAQ</a>
+                <a href="#offer">Create an account</a>
+              </div>
+            </nav>
+
+            <nav className="footer-column" aria-label="Legal links">
+              <h2>Legal</h2>
+              <div className="footer-links">
+                <a href="https://rankreels.ai/privacy">Privacy policy</a>
+                <a href="https://rankreels.ai/terms">Terms of service</a>
+                <a href="https://rankreels.ai/disclaimer">Disclaimer</a>
+                <a href="https://rankreels.ai/terms#subscriptions">Refund policy</a>
+                <a href="https://rankreels.ai/privacy#cookies">Cookie notice</a>
+              </div>
+            </nav>
+
+            <div className="footer-column">
+              <h2>Support</h2>
+              <address className="footer-contact">
+                <a href="mailto:support@rankreels.ai">support@rankreels.ai</a>
+                <p>For product, billing, privacy, and legal requests.</p>
+              </address>
+            </div>
+          </div>
+
+          <div className="footer-bottom">
+            <p>© 2026 RankReels. All rights reserved.</p>
+            <p>
+              Results vary. RankReels does not guarantee views, reach, rankings, engagement,
+              followers, sales, or revenue.
+            </p>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
