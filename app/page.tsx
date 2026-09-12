@@ -9,6 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const assetUrl = (path: string) => `${basePath}${path}`;
+const foundersBuyUrl = "https://rankreels.ai/buy/founders";
 
 const reelCards = [
   {
@@ -345,8 +346,9 @@ export default function Home() {
         <div className="nav-links">
           <a href="#samples">Samples</a>
           <a href="#proof">Proof</a>
+          <a href="#how">How it works</a>
         </div>
-        <a className="nav-cta" href="#start">
+        <a className="nav-cta" href="#offer">
           Get Early Access
         </a>
       </nav>
@@ -796,7 +798,7 @@ export default function Home() {
             </div>
           </div>
 
-          <a className="button demo-button" href="#start">
+          <a className="button demo-button" href="#offer">
             Start Creating with RankReels
           </a>
         </div>
@@ -1063,7 +1065,7 @@ export default function Home() {
               that follows.
             </p>
           </div>
-          <a className="button founders-button" href="#start">
+          <a className="button founders-button" href="#offer">
             Lock In My Founder’s Price
           </a>
         </div>
@@ -1104,7 +1106,7 @@ export default function Home() {
                 yourself, RankReels brings everything together in one place.
               </p>
             </div>
-            <a className="button tool-stack-button" href="#start">
+            <a className="button tool-stack-button" href="#offer">
               Lock In My Founder’s Price
             </a>
           </div>
@@ -1171,7 +1173,7 @@ export default function Home() {
                 <span>$708/year</span>
                 <strong>$297/year</strong>
               </div>
-              <a className="button included-button" href="#start">
+              <a className="button included-button" href={foundersBuyUrl}>
                 Get RankReels Now!
               </a>
             </div>
@@ -1226,7 +1228,7 @@ export default function Home() {
           <p className="final-close-price">
             Once the launch closes, the price increases to the regular $708 per year.
           </p>
-          <a className="button final-close-button" href="#start">
+          <a className="button final-close-button" href={foundersBuyUrl}>
             Lock In My $297 Founder’s Price
           </a>
           <div className="final-close-divider" aria-hidden="true" />
