@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const assetUrl = (path: string) => `${basePath}${path}`;
 const foundersBuyUrl = "https://rankreels.ai/buy/founders";
+const foundersDealEndsAt = process.env.NEXT_PUBLIC_FOUNDERS_DEAL_END_AT || "2026-09-24T00:00:00-05:00";
 
 const reelCards = [
   {
@@ -294,6 +295,78 @@ const faqItems = [
       "If RankReels doesn’t work as advertised, you may request a refund within 14 days, provided you haven’t used any credits to render a finished reel."
   }
 ];
+
+const getCountdownParts = (targetDate: string, now: number) => {
+  const targetTime = Date.parse(targetDate);
+
+  if (!targetDate || Number.isNaN(targetTime)) {
+    return null;
+  }
+
+  const remaining = Math.max(0, targetTime - now);
+  const totalSeconds = Math.floor(remaining / 1000);
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  return { days, hours, minutes, seconds, expired: remaining === 0 };
+};
+
+function CountdownTimer({ targetDate }: { targetDate: string }) {
+  const [now, setNow] = useState(() => Date.now());
+  const countdown = getCountdownParts(targetDate, now);
+
+  useEffect(() => {
+    if (!targetDate || !countdown || countdown.expired) {
+      return;
+    }
+
+    const interval = window.setInterval(() => setNow(Date.now()), 1000);
+
+    return () => window.clearInterval(interval);
+  }, [countdown, targetDate]);
+
+  if (!countdown) {
+    return (
+      <div className="countdown-timer countdown-timer-pending" aria-label="Countdown timer awaiting launch deadline">
+        <p>Launch deadline pending</p>
+        <span>Add NEXT_PUBLIC_FOUNDERS_DEAL_END_AT to activate the timer.</span>
+      </div>
+    );
+  }
+
+  const units = [
+    ["Days", countdown.days],
+    ["Hours", countdown.hours],
+    ["Minutes", countdown.minutes],
+    ["Seconds", countdown.seconds]
+  ] as const;
+
+  return (
+    <div
+      className={`countdown-timer ${countdown.expired ? "countdown-timer-expired" : ""}`}
+      role="timer"
+      aria-live="polite"
+      aria-label={
+        countdown.expired
+          ? "Founder’s deal countdown has ended"
+          : `${countdown.days} days, ${countdown.hours} hours, ${countdown.minutes} minutes, and ${countdown.seconds} seconds remaining`
+      }
+    >
+      {countdown.expired ? (
+        <p>Founder’s deal has ended</p>
+      ) : (
+        units.map(([label, value]) => (
+          <div className="countdown-unit" key={label}>
+            <strong>{String(value).padStart(2, "0")}</strong>
+            <span>{label}</span>
+          </div>
+        ))
+      )}
+    </div>
+  );
+}
 
 export default function Home() {
   const pageRef = useRef<HTMLElement>(null);
@@ -1232,9 +1305,7 @@ export default function Home() {
             Lock In My $297 Founder’s Price
           </a>
           <div className="final-close-divider" aria-hidden="true" />
-          <div className="countdown-placeholder" aria-label="Countdown timer placeholder">
-            [Countdown Timer]
-          </div>
+          <CountdownTimer targetDate={foundersDealEndsAt} />
           <p className="countdown-note">Founder&apos;s deal expires once the timer hits zero.</p>
         </div>
       </section>

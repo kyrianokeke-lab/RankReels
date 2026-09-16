@@ -3556,17 +3556,74 @@ h1 {
   font-size: 18px;
 }
 
-.countdown-placeholder {
+.countdown-timer {
   width: min(560px, 100%);
   min-height: 86px;
   display: grid;
-  place-items: center;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
   margin: 28px auto 0;
-  border: 1px dashed rgba(255, 92, 57, 0.48);
+  padding: 17px 10px;
+  border: 1px solid rgba(255, 92, 57, 0.3);
   border-radius: 24px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 92, 57, 0.16), transparent 16rem),
+    rgba(255, 255, 255, 0.035);
+}
+
+.countdown-unit {
+  min-height: 72px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 18px;
+  background: rgba(5, 6, 9, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.countdown-unit strong {
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+}
+
+.countdown-unit span {
+  color: rgba(247, 246, 243, 0.62);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.countdown-timer-pending,
+.countdown-timer-expired {
+  grid-template-columns: 1fr;
+  place-items: center;
+  align-content: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.countdown-timer-pending p,
+.countdown-timer-expired p {
+  margin: 0;
   color: var(--accent);
-  font-size: 20px;
-  font-weight: 760;
+  font-family: var(--font-display);
+  font-size: 23px;
+  font-weight: 780;
+  line-height: 1.05;
+}
+
+.countdown-timer-pending span {
+  color: rgba(247, 246, 243, 0.56);
+  font-size: 12px;
+  line-height: 1.35;
 }
 
 .final-close-button {
@@ -4034,6 +4091,14 @@ h1 {
     white-space: normal;
   }
 
+  .audience-card:nth-child(4) h3 {
+    font-size: 28px;
+  }
+
+  .audience-card:nth-child(4) p {
+    font-size: 16px;
+  }
+
   .control-heading p,
   .control-note,
   .features-heading p,
@@ -4055,6 +4120,29 @@ h1 {
 
   .final-close-inner > p.countdown-note {
     font-size: 13px;
+  }
+
+  .countdown-timer {
+    width: min(322px, calc(100vw - 34px));
+    max-width: none;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+    padding: 8px 7px;
+    border-radius: 18px;
+  }
+
+  .countdown-unit {
+    min-height: 58px;
+    border-radius: 14px;
+  }
+
+  .countdown-unit strong {
+    font-size: 24px;
+  }
+
+  .countdown-unit span {
+    font-size: 8px;
+    letter-spacing: 0.07em;
   }
 
   .footer-grid {
@@ -4385,6 +4473,420 @@ h1 {
     align-items: flex-start;
     flex-direction: column;
     gap: 4px;
+  }
+
+  .eyebrow,
+  .section-kicker {
+    font-size: 13px;
+  }
+
+  h1 {
+    font-size: 40px;
+    line-height: 1.04;
+  }
+
+  .hero-lede {
+    font-size: 19px;
+    line-height: 1.45;
+  }
+
+  .hero-support {
+    font-size: 14px;
+    line-height: 1.45;
+    padding: 11px 18px;
+  }
+
+  .section-heading h2,
+  .proof-inner h2 {
+    font-size: 40px;
+    line-height: 0.98;
+  }
+
+  .proof-text {
+    font-size: 15px;
+    line-height: 1.62;
+  }
+
+  .proof-text blockquote {
+    font-size: 16px;
+  }
+
+  .ranking-copy h2 {
+    font-size: 35px;
+    line-height: 1.04;
+  }
+
+  .ranking-body {
+    font-size: 15px;
+    line-height: 1.62;
+  }
+
+  .bottleneck-title-primary {
+    font-size: 40px;
+    line-height: 1.08;
+  }
+
+  .bottleneck-title-secondary {
+    font-size: 25px;
+    line-height: 1.12;
+    white-space: normal;
+  }
+
+  .bottleneck-copy p {
+    font-size: 15px;
+    line-height: 1.62;
+  }
+
+  .bottleneck-wide {
+    margin-top: -7px;
+    font-size: 15px;
+    line-height: 1.62;
+  }
+
+  .pipeline-panel {
+    margin-top: 0;
+  }
+
+  .tradeoffs-heading p {
+    font-size: 20px;
+    line-height: 1.45;
+  }
+
+  .trade-card h3 {
+    font-size: 22px;
+    line-height: 1.05;
+  }
+
+  .trade-card:nth-child(2) h3 {
+    font-size: 23px;
+  }
+
+  .trade-card p {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .tradeoffs-close {
+    font-size: 20px;
+    line-height: 1.34;
+  }
+
+  .tradeoffs-complexity {
+    font-size: 25px;
+    line-height: 1.15;
+  }
+
+  .idea-copy h2 {
+    font-size: 35px;
+    line-height: 1.12;
+  }
+
+  .idea-copy p {
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  .product-reveal {
+    margin-top: 30px;
+  }
+
+  .intro-copy {
+    font-size: 20px;
+    line-height: 1.55;
+  }
+
+  .intro-copy .intro-note {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .workflow-heading p {
+    font-size: 19px;
+    line-height: 1.5;
+  }
+
+  .workflow-card-copy h3 {
+    font-size: 27px;
+    font-weight: 600;
+    line-height: 1.08;
+  }
+
+  .workflow-card-copy p {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .demo-heading h2,
+  .control-heading h2 {
+    font-size: 35px;
+    line-height: 1.12;
+  }
+
+  .button.demo-button {
+    width: min(311px, 100%);
+    font-size: 17px;
+  }
+
+  .control-card h3 {
+    font-size: 27px;
+  }
+
+  .control-card ul {
+    font-size: 15px;
+  }
+
+  .control-card li {
+    font-size: 16px;
+    line-height: 1.45;
+  }
+
+  .control-note {
+    font-size: 17px;
+    line-height: 1.44;
+  }
+
+  .hero-copy {
+    margin-top: -68px;
+  }
+
+  .bottleneck-title-primary,
+  .tradeoffs-heading h2,
+  .intro-inner h2,
+  .workflow-heading h2,
+  .identity-copy h2,
+  .features-heading h2,
+  .audience-heading h2,
+  .founders-inner h2,
+  .tool-stack-heading h2,
+  .unit-copy h2,
+  .included-copy h2,
+  .guarantee-inner h2,
+  .faq-inner h2,
+  .final-close-inner h2 {
+    font-size: 35px;
+    line-height: 1.08;
+  }
+
+  .control-note {
+    margin-top: 82px;
+  }
+
+  .identity-copy p,
+  .identity-close {
+    font-size: 16px;
+    line-height: 1.56;
+  }
+
+  .identity-close {
+    font-size: 16px !important;
+    line-height: 1.56 !important;
+  }
+
+  .feature-card-script,
+  .feature-card-review,
+  .feature-card-publish {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .feature-card-script .feature-copy,
+  .feature-card-review .feature-copy {
+    order: 1;
+    padding: 16px 14px 0;
+  }
+
+  .feature-card-script .feature-asset,
+  .feature-card-review .feature-asset {
+    order: 2;
+    width: 100%;
+    min-height: 260px;
+  }
+
+  .feature-card-publish .feature-asset {
+    order: 1;
+  }
+
+  .feature-card-publish .feature-copy {
+    order: 2;
+    padding: 0 14px 12px;
+  }
+
+  .feature-card-publish .feature-copy h3 {
+    font-size: 25px;
+    line-height: 1.08;
+  }
+
+  .feature-card-publish .feature-copy p {
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  .identity-visual {
+    min-height: auto;
+    padding: 18px 14px 26px;
+  }
+
+  .identity-scene-board {
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto auto auto;
+    column-gap: 18px;
+    row-gap: 46px;
+    margin: 0;
+    padding-top: 8px;
+  }
+
+  .identity-scene-board::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+      linear-gradient(rgba(250, 184, 76, 0.6), rgba(250, 184, 76, 0.6)) 50% 221px / 2px 62px no-repeat,
+      linear-gradient(90deg, rgba(250, 184, 76, 0.6), rgba(250, 184, 76, 0.6)) 50% 283px / 62% 2px no-repeat,
+      linear-gradient(rgba(250, 184, 76, 0.6), rgba(250, 184, 76, 0.6)) 25% 283px / 2px 39px no-repeat,
+      linear-gradient(rgba(250, 184, 76, 0.6), rgba(250, 184, 76, 0.6)) 75% 283px / 2px 39px no-repeat,
+      linear-gradient(rgba(250, 184, 76, 0.42), rgba(250, 184, 76, 0.42)) 25% 322px / 2px 218px no-repeat,
+      linear-gradient(rgba(250, 184, 76, 0.42), rgba(250, 184, 76, 0.42)) 75% 322px / 2px 218px no-repeat;
+    filter: drop-shadow(0 0 10px rgba(250, 184, 76, 0.18));
+    pointer-events: none;
+  }
+
+  .identity-scene-lines {
+    display: none;
+  }
+
+  .identity-scene-card {
+    width: min(100%, 150px);
+    min-height: 0;
+    margin: 0;
+    aspect-ratio: 1 / 1.22;
+    justify-self: center;
+    border-width: 2px;
+    border-radius: 14px;
+  }
+
+  .identity-scene-card-hero {
+    grid-column: 1 / -1;
+    width: min(194px, 62%);
+    min-height: 0;
+    aspect-ratio: 1 / 1.08;
+    justify-self: center;
+    border-width: 2px;
+    border-radius: 18px;
+  }
+
+  .identity-scene-card figcaption {
+    top: auto;
+    bottom: 7px;
+    width: min(112px, calc(100% - 18px));
+    min-height: 0;
+    height: auto;
+    padding: 5px 7px;
+    border-radius: 999px;
+    font-size: 8px;
+    line-height: 1.05;
+  }
+
+  .founders-copy p,
+  .founders-copy p:nth-child(3),
+  .founders-copy p:nth-child(4) {
+    font-size: 16px;
+    line-height: 1.58;
+  }
+
+  .tool-stack-table {
+    display: grid;
+    gap: 14px;
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .tool-stack-row.tool-stack-header {
+    display: none;
+  }
+
+  .tool-stack-row {
+    overflow: hidden;
+    border: 1px solid rgba(68, 139, 167, 0.32);
+    border-radius: 22px;
+    background:
+      radial-gradient(circle at 84% 0%, rgba(42, 130, 142, 0.13), transparent 16rem),
+      var(--surface-2);
+  }
+
+  .tool-stack-row p {
+    padding: 18px 18px 20px;
+    font-size: 16px;
+    line-height: 1.48;
+  }
+
+  .tool-stack-row:not(.tool-stack-header) p::before {
+    display: block;
+    margin-bottom: 8px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 760;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .tool-stack-row:not(.tool-stack-header) p:first-child::before {
+    content: "What you would need";
+  }
+
+  .tool-stack-row:not(.tool-stack-header) p:last-child::before {
+    content: "What it requires";
+  }
+
+  .tool-stack-close p {
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  .unit-copy p {
+    font-size: 16px;
+    line-height: 1.58;
+  }
+
+  .unit-copy p:nth-last-child(2) {
+    font-size: 20px;
+    line-height: 1.42;
+  }
+
+  .included-copy p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .button.included-button {
+    width: min(299px, 100%);
+    padding: 14px 20px;
+    font-size: 24px;
+    line-height: 1.1;
+  }
+
+  .guarantee-copy {
+    font-size: 17px;
+    line-height: 1.52;
+  }
+
+  .faq-item summary {
+    font-size: 17px;
+  }
+
+  .faq-item p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .button.final-close-button {
+    width: min(284px, 100%);
+    padding: 18px 15px;
   }
 
   .site-footer {
